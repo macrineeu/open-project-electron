@@ -8,5 +8,6 @@ app.on('ready', () => {
         { label: 'Item1', type: 'radio', checked: true }
     ]);
 
+    tray.setToolTip('This is my first application');
     tray.setContextMenu(contextMenu);
 })
