@@ -4,7 +4,7 @@ const Store = require('electron-store');
 
 const schema = {
     projects: {
-        type: 'array'
+        type: 'string'
     }
 }
 
@@ -12,6 +12,10 @@ const store = new Store({ schema });
 
 app.on('ready', () => {
     const tray = new Tray(resolve(__dirname, 'assets', 'iconTemplate.png'));
+    const storedProjects = store.get('projects');
+    const projects = storedProjects ? JSON.parse(storedProjects) : [];
+
+    console.log(projects);
 
     const contextMenu = Menu.buildFromTemplate([
         {
@@ -20,7 +24,7 @@ app.on('ready', () => {
                 const path = dialog.showOpenDialog({
                     properties: ['openDirectory']
                 }).then(result => {
-                    console.log(result.filePaths)
+                    store.set('projects', JSON.stringify([...projects, result.filePaths]))
                 }).catch(err => {
                     console.log(err)
                 })
