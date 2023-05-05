@@ -9,7 +9,6 @@ const schema = {
     }
 }
 
-
 const store = new Store({ schema });
 
 app.on('ready', () => {
