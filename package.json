@@ -10,6 +10,7 @@
   "author": "Matheus Macrineu",
   "license": "MIT",
   "dependencies": {
-    "electron": "^24.2.0"
+    "electron": "^24.2.0",
+    "electron-store": "^8.1.0"
   }
 }
