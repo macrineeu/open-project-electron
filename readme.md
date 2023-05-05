@@ -30,3 +30,8 @@ App criado para abrir os projetos direto no VSCODE sem ter que acessar o termina
 ```bash
   npm install
 ```
+
+# Como Funciona
+
+Ao iniciar a aplicação, aparecerá o icone do VSCODE no tray do seu O.S.
+Clique com o botão esquerdo e adicione o projetos que você quer acessar, após adicionar, clique em cima do projeto que o VSCODE já inicia no projeto selecionado;
