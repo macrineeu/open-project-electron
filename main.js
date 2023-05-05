@@ -1,4 +1,4 @@
-const { resolve } = require('path');
+const { resolve, basename } = require('path');
 const { app, Menu, Tray, dialog } = require('electron');
 const Store = require('electron-store');
 
@@ -24,7 +24,12 @@ app.on('ready', () => {
                 const path = dialog.showOpenDialog({
                     properties: ['openDirectory']
                 }).then(result => {
-                    store.set('projects', JSON.stringify([...projects, result.filePaths]))
+                    let path = result.filePaths;
+
+                    store.set('projects', JSON.stringify([...projects, {
+                        path,
+                        name: basename(result.filePaths[0])
+                    }]))
                 }).catch(err => {
                     console.log(err)
                 })
